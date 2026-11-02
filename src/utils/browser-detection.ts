@@ -29,7 +29,11 @@ export function detectBrowser(): BrowserInfo {
   const isFacebook = /FBAN|FBAV|FB_IAB|FB4A|Messenger/i.test(ua);
   const isZalo = /Zalo/i.test(ua);
   const isInstagram = /Instagram/i.test(ua);
-  const isWebView = /; wv|Version\/4\.0.*Chrome/i.test(ua) || (isIOS && !/Safari/i.test(ua));
+
+  const isStandalone = Boolean((navigator as { standalone?: boolean }).standalone);
+  const isWebView =
+    /; wv|Version\/4\.0.*Chrome/i.test(ua) ||
+    (isIOS && !isStandalone && !/Safari/i.test(ua) && /AppleWebKit/i.test(ua));
 
   const isInApp = isFacebook || isZalo || isInstagram || isWebView;
 

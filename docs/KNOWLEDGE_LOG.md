@@ -28,3 +28,22 @@
   - [MessageCard.ts](file:///D:/Pictures/congratulations_khue/src/components/MessageCard.ts): Separated the 3D-tilting handwritten postcard (`celebration-card.webp`) into the left column and the printed dedication + HKT signature + confetti/download actions into the right column.
   - [Signature.ts](file:///D:/Pictures/congratulations_khue/src/components/Signature.ts): Added the commemorative banner (`khue-commemorative.webp`) and clipboard link helper.
 - **Verification:** Passed `lint.mjs` (0 FAIL) and `inspect.mjs` (0 FAIL across 1440px, 768px, 390px, 4 real images).
+
+
+---
+
+## [2026-11-02 15:46 GMT+7] — Senior FE & QA UAT Review, Fixes, Human-Centric README & GitHub Release
+
+- **Task 1 — Senior FE & Lead QA UAT Findings Resolved (9/9 Fixed):**
+  - Added [`asset-url.ts`](../src/utils/asset-url.ts) and [`vite-env.d.ts`](../src/vite-env.d.ts) so all dynamic `<picture>` / `<img>` paths resolve safely with `import.meta.env.BASE_URL` on both local dev (`./`) and GitHub Pages (`/the-golden-milestone-thuc-khue/`).
+  - Updated [`Inspiration.ts`](../src/components/Inspiration.ts) with the refined heartfelt caption beneath `khue-painting.webp` and upgraded `khue-commemorative.webp` to `1200x802` full resolution.
+  - Regenerated [`og-image.jpg`](../public/assets/og-image.jpg) (`1200x630`, `<250 KB`) preserving 100% of the commemorative portrait over a `#172B46` blurred backdrop with subtle gold framing lines, and cleaned up unused duplicate OG PNG files.
+  - Restored verbatim congratulatory body copy and signature in [`MessageCard.ts`](../src/components/MessageCard.ts) (`From HKT (Hoàng - Khải - Tâm)`) with monochrome/duotone SVG vector icons (zero Windows OS emojis).
+  - Added full keyboard accessibility (`tabindex="0"`, `role="region"`, `focus-visible` outline, and `Enter` / `Space` confetti trigger) to [`card-3d.ts`](../src/effects/card-3d.ts) and wired live `onReducedMotionChange` listeners in [`main.ts`](../src/main.ts).
+- **Task 2 — Storytelling `README.md`:**
+  - Crafted [`README.md`](../README.md) opening with a warm, human narrative celebrating Thục Khuê's Master's thesis defense and the 4 emotional chapters from **HKT (Hoàng · Khải · Tâm)**, followed by full technical documentation.
+- **Verification Results:**
+  - `npm run check` (`tsc --noEmit`): **0 errors**
+  - `npm run build` (`vite build`): **Built in 200ms**
+  - `design-taste-frontend` `lint.mjs`: **0 FAIL**
+  - `design-taste-frontend` `inspect.mjs` (`1440px`, `768px`, `390px`, `320px`): **0 FAIL across all 4 viewports**

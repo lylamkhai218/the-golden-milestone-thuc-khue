@@ -19,15 +19,15 @@
   --font-sans: "Be Vietnam Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-script: "Dancing Script", cursive;
 
-  /* Fluid Type Scale (Strictly 16px+ for body, calibrated monument size for 360-390px mobile) */
-  --text-xs: clamp(0.875rem, 0.85rem + 0.1vw, 0.9375rem);  /* 14-15px */
-  --text-sm: clamp(0.9375rem, 0.9rem + 0.15vw, 1rem);       /* 15-16px */
-  --text-base: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);  /* 17-19px body */
-  --text-lg: clamp(1.25rem, 1.15rem + 0.4vw, 1.4375rem);    /* 20-23px */
-  --text-xl: clamp(1.5rem, 1.35rem + 0.6vw, 1.85rem);       /* 24-30px */
-  --text-2xl: clamp(1.875rem, 1.6rem + 1.25vw, 2.5rem);     /* 30-40px */
-  --text-3xl: clamp(2.25rem, 1.85rem + 2vw, 3.25rem);       /* 36-52px */
-  --text-monument: clamp(2.5rem, 1.35rem + 5.2vw, 5.25rem); /* Fits 360px-1440px without horizontal overflow */
+  /* Fluid Type Scale (Calibrated for 320px-1920px viewports) */
+  --text-xs: clamp(0.875rem, 0.85rem + 0.1vw, 0.9375rem);    /* 14-15px */
+  --text-sm: clamp(0.9375rem, 0.9rem + 0.15vw, 1rem);         /* 15-16px */
+  --text-base: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);    /* 17-19px body */
+  --text-lg: clamp(1.25rem, 1.15rem + 0.4vw, 1.4375rem);      /* 20-23px */
+  --text-xl: clamp(1.5rem, 1.35rem + 0.6vw, 1.85rem);         /* 24-30px */
+  --text-2xl: clamp(1.875rem, 1.6rem + 1.25vw, 2.5rem);       /* 30-40px */
+  --text-3xl: clamp(2.25rem, 1.85rem + 2vw, 3.25rem);         /* 36-52px */
+  --text-monument: clamp(2.125rem, 1.15rem + 5.5vw, 5.25rem); /* 34px at 320px up to 84px at 1440px */
 
   /* Spacing Scale */
   --space-2xs: 4px;
@@ -49,5 +49,5 @@
 
   /* Container & Margins */
   --container-max-width: 1120px;
-  --page-margin: clamp(20px, 5vw, 32px);
+  --page-margin: clamp(16px, 5vw, 32px);
 }

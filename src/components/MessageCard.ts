@@ -1,6 +1,10 @@
 import { Icons } from "./icons.ts";
+import { assetUrl } from "../utils/asset-url.ts";
 
 export function renderMessageCard(): string {
+  const cardWebp = assetUrl("assets/celebration-card.webp");
+  const cardPng = assetUrl("assets/celebration-card.png");
+
   return `
     <section class="section container" id="message-card">
       <div class="painting-header reveal-on-scroll delay-1">
@@ -14,9 +18,9 @@ export function renderMessageCard(): string {
         <div class="keepsake-card-container reveal-on-scroll delay-1">
           <div class="keepsake-card" id="interactive-card">
             <picture>
-              <source srcset="./assets/celebration-card.webp" type="image/webp" />
+              <source srcset="${cardWebp}" type="image/webp" />
               <img
-                src="./assets/celebration-card.png"
+                src="${cardPng}"
                 alt="Thiệp viết tay chúc mừng tân Thạc sĩ Thục Khuê từ HKT"
                 width="1671"
                 height="941"
@@ -37,8 +41,8 @@ export function renderMessageCard(): string {
           </blockquote>
 
           <div class="signature-block" style="text-align: left; margin-top: var(--space-md);">
-            <p class="signature-handwriting">From HKT</p>
-            <p class="signature-names">Hoàng · Khải · Tâm</p>
+            <p class="signature-handwriting">With love, HKT</p>
+            <p class="signature-names">From HKT (Hoàng - Khải - Tâm)</p>
           </div>
 
           <div class="message-actions">
@@ -46,7 +50,7 @@ export function renderMessageCard(): string {
               ${Icons.starCrest} Pháo hoa chúc mừng
             </button>
             <a
-              href="./assets/celebration-card.png"
+              href="${cardPng}"
               download="Thiep-Chuc-Mung-Thuc-Khue-HKT.png"
               class="btn-secondary"
             >

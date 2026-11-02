@@ -30,7 +30,12 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Type check
+        run: npm run check
+
       - name: Build project
+        env:
+          GITHUB_ACTIONS: "true"
         run: npm run build
 
       - name: Upload Pages artifact

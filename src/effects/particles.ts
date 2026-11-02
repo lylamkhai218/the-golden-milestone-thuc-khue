@@ -8,6 +8,7 @@ interface Particle {
   speedY: number;
   speedX: number;
   opacity: number;
+  phase: number;
   pulseSpeed: number;
 }
 
@@ -20,56 +21,74 @@ export function initParticles(canvasId: string): () => void {
   const ctx = canvas.getContext("2d");
   if (!ctx) return () => {};
 
-  let animationFrameId: number;
+  let animationFrameId = 0;
   let isRunning = true;
+  let viewportWidth = window.innerWidth;
+  let viewportHeight = window.innerHeight;
 
   const colors = ["#C5A052", "#E7D4AA", "#E9D39D", "#F8EBCB"];
   const particles: Particle[] = [];
 
-  function resize() {
-    if (!canvas) return;
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+  function applyCanvasSize(w: number, h: number) {
+    if (!canvas || !ctx) return;
+    const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+    canvas.width = Math.floor(w * dpr);
+    canvas.height = Math.floor(h * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
 
-  window.addEventListener("resize", resize);
-  resize();
+  function handleResize() {
+    const newW = window.innerWidth;
+    const newH = window.innerHeight;
+    // Ignore minor vertical address-bar shifts on mobile Safari/Chrome
+    if (newW === viewportWidth && Math.abs(newH - viewportHeight) < 120) {
+      return;
+    }
+    viewportWidth = newW;
+    viewportHeight = newH;
+    applyCanvasSize(viewportWidth, viewportHeight);
+  }
 
-  const particleCount = window.innerWidth < 768 ? 24 : 42;
+  window.addEventListener("resize", handleResize);
+  applyCanvasSize(viewportWidth, viewportHeight);
+
+  const particleCount = viewportWidth < 768 ? 22 : 38;
 
   for (let i = 0; i < particleCount; i++) {
     particles.push({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
+      x: Math.random() * viewportWidth,
+      y: Math.random() * viewportHeight,
       radius: Math.random() * 1.8 + 0.6,
       color: colors[Math.floor(Math.random() * colors.length)],
-      speedY: -(Math.random() * 0.35 + 0.15),
-      speedX: (Math.random() - 0.5) * 0.2,
-      opacity: Math.random() * 0.6 + 0.2,
-      pulseSpeed: Math.random() * 0.02 + 0.01,
+      speedY: -(Math.random() * 0.32 + 0.14),
+      speedX: (Math.random() - 0.5) * 0.18,
+      opacity: Math.random() * 0.5 + 0.2,
+      phase: Math.random() * Math.PI * 2,
+      pulseSpeed: Math.random() * 0.025 + 0.01,
     });
   }
 
   function render() {
     if (!ctx || !canvas || !isRunning) return;
 
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0, 0, viewportWidth, viewportHeight);
 
     for (let i = 0; i < particles.length; i++) {
       const p = particles[i];
       p.y += p.speedY;
       p.x += p.speedX;
-      p.opacity += Math.sin(Date.now() * p.pulseSpeed) * 0.006;
+      p.phase += p.pulseSpeed;
+      p.opacity += Math.sin(p.phase) * 0.005;
 
-      if (p.opacity < 0.1) p.opacity = 0.1;
-      if (p.opacity > 0.8) p.opacity = 0.8;
+      if (p.opacity < 0.12) p.opacity = 0.12;
+      if (p.opacity > 0.75) p.opacity = 0.75;
 
       if (p.y < -10) {
-        p.y = canvas.height + 10;
-        p.x = Math.random() * canvas.width;
+        p.y = viewportHeight + 10;
+        p.x = Math.random() * viewportWidth;
       }
-      if (p.x < -10) p.x = canvas.width + 10;
-      if (p.x > canvas.width + 10) p.x = -10;
+      if (p.x < -10) p.x = viewportWidth + 10;
+      if (p.x > viewportWidth + 10) p.x = -10;
 
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
@@ -84,16 +103,13 @@ export function initParticles(canvasId: string): () => void {
 
   render();
 
-  // Pause when tab not visible to preserve battery
   const handleVisibility = () => {
     if (document.hidden) {
       isRunning = false;
       cancelAnimationFrame(animationFrameId);
-    } else {
-      if (!isRunning) {
-        isRunning = true;
-        render();
-      }
+    } else if (!isRunning) {
+      isRunning = true;
+      render();
     }
   };
   document.addEventListener("visibilitychange", handleVisibility);
@@ -101,7 +117,7 @@ export function initParticles(canvasId: string): () => void {
   return () => {
     isRunning = false;
     cancelAnimationFrame(animationFrameId);
-    window.removeEventListener("resize", resize);
+    window.removeEventListener("resize", handleResize);
     document.removeEventListener("visibilitychange", handleVisibility);
   };
 }

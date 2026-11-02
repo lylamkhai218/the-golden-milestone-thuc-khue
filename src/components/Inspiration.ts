@@ -1,6 +1,10 @@
 import { Icons } from "./icons.ts";
+import { assetUrl } from "../utils/asset-url.ts";
 
 export function renderInspiration(): string {
+  const paintWebp = assetUrl("assets/khue-painting.webp");
+  const paintJpg = assetUrl("assets/khue-painting.jpg");
+
   return `
     <section class="section container" id="inspiration">
       <div class="painting-editorial">
@@ -14,9 +18,9 @@ export function renderInspiration(): string {
         <figure class="painting-frame reveal-on-scroll delay-2">
           <div class="painting-media-wrap">
             <picture>
-              <source srcset="./assets/khue-painting.webp" type="image/webp" />
+              <source srcset="${paintWebp}" type="image/webp" />
               <img
-                src="./assets/khue-painting.jpg"
+                src="${paintJpg}"
                 alt="Thục Khuê bên giá vẽ dưới ánh nắng ấm áp"
                 width="1080"
                 height="720"

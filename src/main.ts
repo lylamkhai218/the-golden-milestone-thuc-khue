@@ -25,7 +25,7 @@ function initApp() {
 
   // Mount Application Shell
   app.innerHTML = `
-    <canvas id="particles-canvas"></canvas>
+    <canvas id="particles-canvas" aria-hidden="true"></canvas>
     <div id="browser-alert-container"></div>
     <div class="page-wrapper">
       <div class="container">
@@ -52,7 +52,7 @@ function initApp() {
 
   // Mount In-App Browser Alert if needed
   const alertContainer = document.getElementById("browser-alert-container");
-  const alertElement = renderBrowserHelp();
+  const alertElement = renderBrowserHelp(false);
   if (alertContainer && alertElement) {
     alertContainer.appendChild(alertElement);
   }
@@ -70,14 +70,28 @@ function initApp() {
   btnCardCelebrate?.addEventListener("click", () => triggerCelebrationConfetti());
 
   // Initialize Footer Copy Button
+  let footerCopyTimeoutId: ReturnType<typeof setTimeout> | undefined;
   const btnFooterCopy = document.getElementById("btn-footer-copy");
   btnFooterCopy?.addEventListener("click", async () => {
     const ok = await copyLinkToClipboard(window.location.href);
     if (ok && btnFooterCopy) {
+      if (footerCopyTimeoutId) clearTimeout(footerCopyTimeoutId);
       btnFooterCopy.innerHTML = `${Icons.check} Đã sao chép liên kết`;
-      setTimeout(() => {
+      footerCopyTimeoutId = setTimeout(() => {
         btnFooterCopy.innerHTML = `${Icons.copy} Sao chép liên kết trang`;
       }, 2200);
+    }
+  });
+
+  // Initialize Footer External Browser Helper Button
+  const btnFooterExternal = document.getElementById("btn-footer-external");
+  btnFooterExternal?.addEventListener("click", () => {
+    if (!alertContainer) return;
+    alertContainer.innerHTML = "";
+    const forcedAlert = renderBrowserHelp(true);
+    if (forcedAlert) {
+      alertContainer.appendChild(forcedAlert);
+      window.scrollTo({ top: 0, behavior: prefersReducedMotion() ? "auto" : "smooth" });
     }
   });
 

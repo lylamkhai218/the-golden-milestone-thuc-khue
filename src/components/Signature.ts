@@ -1,6 +1,10 @@
 import { Icons } from "./icons.ts";
+import { assetUrl } from "../utils/asset-url.ts";
 
 export function renderFooter(): string {
+  const commWebp = assetUrl("assets/khue-commemorative.webp");
+  const commJpg = assetUrl("assets/khue-commemorative.jpg");
+
   return `
     <section class="section container" id="keepsake-banner">
       <div class="commemorative-box reveal-on-scroll delay-1">
@@ -15,9 +19,9 @@ export function renderFooter(): string {
 
         <figure class="commemorative-figure">
           <picture>
-            <source srcset="./assets/khue-commemorative.webp" type="image/webp" />
+            <source srcset="${commWebp}" type="image/webp" />
             <img
-              src="./assets/og-image.jpg"
+              src="${commJpg}"
               alt="Ấn phẩm chúc mừng Thục Khuê bảo vệ luận án Thạc sĩ thành công từ HKT"
               width="1200"
               height="802"
@@ -40,11 +44,14 @@ export function renderFooter(): string {
       <p class="footer-sub">
         Made with pride, for Thục Khuê · THE GOLDEN MILESTONE
         <br />
-        With love, HKT (Hoàng · Khải · Tâm)
+        From HKT (Hoàng - Khải - Tâm)
       </p>
       <div class="footer-tools">
         <button type="button" class="btn-footer-link" id="btn-footer-copy">
           ${Icons.copy} Sao chép liên kết trang
+        </button>
+        <button type="button" class="btn-footer-link" id="btn-footer-external">
+          ${Icons.compass} Mở bằng trình duyệt ngoài
         </button>
       </div>
     </footer>

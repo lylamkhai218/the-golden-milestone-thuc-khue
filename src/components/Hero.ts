@@ -1,6 +1,10 @@
 import { Icons } from "./icons.ts";
+import { assetUrl } from "../utils/asset-url.ts";
 
 export function renderHero(): string {
+  const gradWebp = assetUrl("assets/khue-graduation.webp");
+  const gradJpg = assetUrl("assets/khue-graduation.jpg");
+
   return `
     <header class="hero-section container">
       <div class="hero-split">
@@ -35,9 +39,9 @@ export function renderHero(): string {
         <figure class="hero-portrait-frame reveal-on-scroll delay-2">
           <div class="hero-portrait-media">
             <picture>
-              <source srcset="./assets/khue-graduation.webp" type="image/webp" />
+              <source srcset="${gradWebp}" type="image/webp" />
               <img
-                src="./assets/khue-graduation.jpg"
+                src="${gradJpg}"
                 alt="Thục Khuê rạng rỡ trong lễ phục tốt nghiệp"
                 width="1080"
                 height="731"
