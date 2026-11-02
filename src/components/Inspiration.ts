@@ -15,7 +15,7 @@ export function renderInspiration(): string {
           </p>
         </div>
 
-        <figure class="painting-frame reveal-on-scroll delay-2">
+        <figure class="painting-frame reveal-on-scroll reveal-scale delay-2" data-tilt-scroll="true">
           <div class="painting-media-wrap">
             <picture>
               <source srcset="${paintWebp}" type="image/webp" />
@@ -31,7 +31,7 @@ export function renderInspiration(): string {
             </picture>
           </div>
 
-          <figcaption class="painting-caption-box">
+          <figcaption class="painting-caption-box reveal-on-scroll delay-2">
             <div class="painting-wish-icon">
               ${Icons.starCrest}
             </div>

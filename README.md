@@ -1,4 +1,4 @@
-# THE GOLDEN MILESTONE — Dành Tặng Tân Thạc Sĩ Thục Khuê
+# THE GOLDEN MILESTONE - Dành Tặng Tân Thạc Sĩ Thục Khuê
 
 > *“The achievement is yours. The pride is ours.”*  
 > *Thành tựu này là của Khuê. Niềm tự hào này là của chúng mình.*
@@ -15,7 +15,7 @@ Ai từng đi qua những năm tháng làm luận văn thạc sĩ đều hiểu 
 
 Nhưng sau tất cả những vất vả ấy, **Thục Khuê** đã bước tới cột mốc này bằng sự điềm tĩnh, nghiêm túc và bản lĩnh rất riêng của mình.
 
-Một tin nhắn chúc mừng gửi vội trong khung chat rồi sẽ trôi đi theo thời gian, một bó hoa tươi rồi cũng đến lúc phai màu. Vì vậy, **HKT (Hoàng · Khải · Tâm)** muốn tạo nên một không gian nhỏ trên Internet — một món quà kỹ thuật số mang tên **The Golden Milestone** — để lưu giữ trọn vẹn niềm vui và sự tự hào của ngày hôm nay. Bất cứ khi nào mở lại đường dẫn này, Khuê vẫn sẽ thấy nguyên vẹn tình cảm, sự trân trọng và lời chúc tốt đẹp nhất mà mọi người dành cho Khuê.
+Một tin nhắn chúc mừng gửi vội trong khung chat rồi sẽ trôi đi theo thời gian, một bó hoa tươi rồi cũng đến lúc phai màu. Vì vậy, **HKT (Hoàng - Khải - Tâm)** muốn tạo nên một không gian nhỏ trên Internet mang tên **The Golden Milestone** để lưu giữ trọn vẹn niềm vui và sự tự hào của ngày hôm nay. Bất cứ khi nào mở lại đường dẫn này, Khuê vẫn sẽ thấy nguyên vẹn tình cảm, sự trân trọng và lời chúc tốt đẹp nhất mà mọi người dành cho Khuê.
 
 ### Bốn lát cắt cảm xúc trên trang web
 
@@ -23,9 +23,9 @@ Một tin nhắn chúc mừng gửi vội trong khung chat rồi sẽ trôi đi 
 2. **Hành Trình Tri Thức & Sự Tận Tụy (The Milestone):** Chuyển sang tông màu xanh đêm sâu lắng (Midnight Navy) và sắc vàng ánh kim (Champagne Gold), chương này là lời ghi nhận dành cho trí tuệ, sự kiên trì và phong thái tự tin, lập luận sắc bén của Khuê khi đứng trước hội đồng bảo vệ luận án.
 3. **Vẽ Nên Ước Mơ & Tỏa Sáng (The Artist's Light):** Bên cạnh một Thục Khuê nghiêm túc trong học thuật là một tâm hồn yêu cái đẹp, dịu dàng bên giá vẽ dưới nắng ấm. Bức ảnh Khuê vẽ tranh được đặt cùng lời nhắn nhủ:
    > *“Hãy tự do vẽ nên bức tranh ước mơ mà Khuê hằng ấp ủ, bằng bất cứ tia sáng ấm áp nào đang lấp lánh bên trong mình. Cứ vững vàng và tự tin tiến bước nhé, bởi trên hành trình này, chính Khuê đã là vầng sáng rực rỡ và đáng tự hào nhất.”*
-4. **Lời Chúc Từ Trái Tim & Ấn Phẩm Kỷ Niệm (The Keepsake Card):** Tấm thiệp viết tay bằng nét mực xanh cùng nhành hoa hướng dương từ Hoàng, Khải và Tâm được tái hiện với hiệu ứng nghiêng 3D tương tác và mưa pháo hoa giấy vàng kim mỗi khi bấm nút chúc mừng:
+4. **Lời Chúc Từ Trái Tim & Ấn Phẩm Kỷ Niệm (The Keepsake Card):** Tấm thiệp cùng nhành hoa hướng dương từ Hoàng, Khải và Tâm được tái hiện với hiệu ứng nghiêng 3D tương tác và mưa pháo hoa giấy vàng kim mỗi khi bấm nút chúc mừng:
    > *“Chúc Thục Khuê có một buổi bảo vệ luận án thạc sĩ thật suôn sẻ và thành công nhé! Sau hành trình dài nỗ lực, nghiên cứu và miệt mài, mong Khuê sẽ thật tự tin, bình tĩnh, lập luận sắc bén để chinh phục hội đồng và đạt được kết quả xứng đáng nhất. Chúc mừng tân Thạc sĩ tương lai!”*  
-   > — **From HKT (Hoàng - Khải - Tâm)**
+   > - **From HKT (Hoàng - Khải - Tâm)**
 
 ---
 
@@ -40,7 +40,7 @@ Dự án được thiết kế theo định hướng **Academic Luxury / Editori
 | **Build Tool** | Vite 6 | Đóng gói tài nguyên tĩnh siêu nhẹ (~11 kB gzip cho toàn bộ HTML, CSS, JS) |
 | **Ngôn ngữ** | Vanilla TypeScript (Strict Mode) | Đảm bảo an toàn kiểu dữ liệu, không phụ thuộc runtime framework nặng |
 | **Design System** | CSS Custom Properties (`tokens.css`) | Quản lý bảng màu Champagne Gold / Midnight Navy / Warm Ivory và fluid typography `clamp()` |
-| **Typography** | Cormorant Garamond, Be Vietnam Pro, Dancing Script | Hiển thị chuẩn xác dấu tiếng Việt, phân cấp rõ ràng giữa tiêu đề học thuật và chữ ký viết tay |
+| **Typography** | Cormorant Garamond, Be Vietnam Pro, Dancing Script | Hiển thị chuẩn xác dấu tiếng Việt, phân cấp rõ ràng giữa tiêu đề học thuật và chữ ký |
 | **Hiệu ứng & 3D** | CSS 3D Perspective + High-DPI HTML5 Canvas | Nghiêng thiệp 3D mượt ở 60fps, hạt bụi vàng lấp lánh và pháo hoa chúc mừng tự dọn dẹp bộ nhớ |
 | **Đồ họa & Ảnh** | Vector SVG + WebP (kèm JPG/PNG fallback) | 100% vector SVG đơn sắc/duotone thanh lịch, hình ảnh nén WebP giảm >80% dung lượng |
 | **CI/CD** | GitHub Actions (`deploy.yml`) | Tự động kiểm tra kiểu (`tsc --noEmit`), build và xuất bản lên GitHub Pages |
@@ -57,7 +57,7 @@ the-golden-milestone-thuc-khue/
 │   └── KNOWLEDGE_LOG.md                # Nhật ký kỹ thuật và kết quả kiểm thử UAT (Append-only)
 ├── public/
 │   ├── assets/
-│   │   ├── celebration-card.webp       # Thiệp chúc mừng viết tay (WebP tối ưu, 343 KB)
+│   │   ├── celebration-card.webp       # Thiệp chúc mừng (WebP tối ưu, 343 KB)
 │   │   ├── celebration-card.png        # Bản gốc độ phân giải cao dùng để tải lưu niệm
 │   │   ├── khue-graduation.webp        # Chân dung tốt nghiệp của Thục Khuê (49 KB)
 │   │   ├── khue-Graduation.jpg         # Fallback JPEG cho trình duyệt cũ

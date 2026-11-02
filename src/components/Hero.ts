@@ -6,7 +6,7 @@ export function renderHero(): string {
   const gradJpg = assetUrl("assets/khue-graduation.jpg");
 
   return `
-    <header class="hero-section container">
+    <header class="hero-section container" id="hero-top">
       <div class="hero-split">
         <div class="hero-copy-col">
           <div class="hero-crest reveal-on-scroll delay-1">
@@ -22,21 +22,17 @@ export function renderHero(): string {
             Một hành trình nỗ lực, một cột mốc đáng tự hào. Chúc mừng Thục Khuê bảo vệ thành công luận án Thạc sĩ.
           </p>
 
-          <p class="hero-lead-prose reveal-on-scroll delay-3">
-            Món quà kỹ thuật số từ HKT (Hoàng · Khải · Tâm) gửi tặng tân Thạc sĩ tương lai nhân ngày chinh phục dấu son học thuật rực rỡ.
-          </p>
-
-          <div class="hero-cta-group reveal-on-scroll delay-4">
-            <a href="#message-card" class="btn-primary" id="cta-scroll-message">
+          <div class="hero-cta-group reveal-on-scroll delay-3">
+            <button type="button" class="btn-primary" id="cta-scroll-message">
               Mở thiệp mừng ${Icons.arrowDown}
-            </a>
+            </button>
             <button type="button" class="btn-secondary" id="btn-celebrate-hero">
               ${Icons.starCrest} Tung hoa chúc mừng
             </button>
           </div>
         </div>
 
-        <figure class="hero-portrait-frame reveal-on-scroll delay-2">
+        <figure class="hero-portrait-frame reveal-on-scroll reveal-scale delay-2" data-tilt-scroll="true">
           <div class="hero-portrait-media">
             <picture>
               <source srcset="${gradWebp}" type="image/webp" />
@@ -52,7 +48,7 @@ export function renderHero(): string {
             </picture>
           </div>
           <figcaption class="hero-portrait-caption">
-            <span>Thục Khuê — Rạng rỡ trên hành trình tri thức</span>
+            <span>Thục Khuê - Rạng rỡ trên hành trình tri thức</span>
             <span class="caption-seal">${Icons.laurelWreath}</span>
           </figcaption>
         </figure>

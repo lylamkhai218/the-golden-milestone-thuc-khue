@@ -19,22 +19,22 @@ export function renderMilestone(): string {
             </p>
           </div>
 
-          <dl class="milestone-ledger reveal-on-scroll delay-2">
-            <div class="ledger-item">
+          <dl class="milestone-ledger reveal-on-scroll reveal-scale delay-2" data-tilt-scroll="true">
+            <div class="ledger-item reveal-on-scroll delay-1">
               <dt class="ledger-term">${Icons.graduationCap} Chủ nhân cột mốc</dt>
               <dd class="ledger-desc">Tân Thạc sĩ tương lai Thục Khuê</dd>
             </div>
-            <div class="ledger-item">
+            <div class="ledger-item reveal-on-scroll delay-2">
               <dt class="ledger-term">${Icons.academicSeal} Dấu ấn học thuật</dt>
               <dd class="ledger-desc">Lễ Bảo vệ Luận án Thạc sĩ</dd>
             </div>
-            <div class="ledger-item">
+            <div class="ledger-item reveal-on-scroll delay-3">
               <dt class="ledger-term">${Icons.shield} Bản lĩnh hội đồng</dt>
               <dd class="ledger-desc">Tự tin · Bình tĩnh · Lập luận sắc bén</dd>
             </div>
-            <div class="ledger-item">
+            <div class="ledger-item reveal-on-scroll delay-4">
               <dt class="ledger-term">${Icons.laurelWreath} Người đồng hành gửi tặng</dt>
-              <dd class="ledger-desc">HKT — Hoàng · Khải · Tâm</dd>
+              <dd class="ledger-desc">HKT - Hoàng · Khải · Tâm</dd>
             </div>
           </dl>
         </div>

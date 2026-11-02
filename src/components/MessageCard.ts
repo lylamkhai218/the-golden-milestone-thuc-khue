@@ -10,29 +10,29 @@ export function renderMessageCard(): string {
       <div class="painting-header reveal-on-scroll delay-1">
         <h2 class="section-title">Lời Chúc Từ Trái Tim</h2>
         <p class="painting-intro">
-          Tấm thiệp viết tay và trọn vẹn tâm tình từ Hoàng, Khải và Tâm gửi đến Thục Khuê.
+          Tấm thiệp và trọn vẹn tâm tình từ Hoàng, Khải và Tâm gửi đến Thục Khuê.
         </p>
       </div>
 
       <div class="message-showcase-split">
-        <div class="keepsake-card-container reveal-on-scroll delay-1">
+        <div class="keepsake-card-container reveal-on-scroll reveal-scale delay-1" data-ui="3d-card">
           <div class="keepsake-card" id="interactive-card">
-            <picture>
-              <source srcset="${cardWebp}" type="image/webp" />
-              <img
-                src="${cardPng}"
-                alt="Thiệp viết tay chúc mừng tân Thạc sĩ Thục Khuê từ HKT"
-                width="1671"
-                height="941"
-                loading="lazy"
-                decoding="async"
-                class="keepsake-postcard-img"
-              />
-            </picture>
+            <div class="keepsake-card-inner">
+              <picture>
+                <source srcset="${cardWebp}" type="image/webp" />
+                <img
+                  src="${cardPng}"
+                  alt="Thiệp chúc mừng tân Thạc sĩ Thục Khuê từ HKT"
+                  width="1671"
+                  height="941"
+                  loading="lazy"
+                  decoding="async"
+                  class="keepsake-postcard-img"
+                />
+              </picture>
+              <div class="keepsake-card-glare" aria-hidden="true"></div>
+            </div>
           </div>
-          <p class="keepsake-hint">
-            Di chuyển trên mặt thiệp để xem góc nghiêng 3D
-          </p>
         </div>
 
         <div class="message-dedication-col reveal-on-scroll delay-2">

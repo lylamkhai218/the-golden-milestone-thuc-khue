@@ -58,3 +58,27 @@
 - **Resolution:**
   - Programmatically enabled GitHub Pages (`POST /repos/lylamkhai218/the-golden-milestone-thuc-khue/pages` with `{"build_type": "workflow"}`) via the GitHub REST API.
   - Added `actions/configure-pages@v5` to [`.github/workflows/deploy.yml`](../.github/workflows/deploy.yml) before `actions/upload-pages-artifact@v3` to ensure environment metadata is always configured prior to deployment.
+
+
+---
+
+## [2026-11-02 16:17 GMT+7] — Real-Device iPhone 13 (iOS 27 / Zalo In-App Browser) UAT Fixes (6/6 Resolved)
+
+- **1. Safari External Browser Launch without Section Jump ([`external-browser.ts`](../src/utils/external-browser.ts), [`BrowserHelp.ts`](../src/components/BrowserHelp.ts), [`main.ts`](../src/main.ts)):**
+  - Replaced `window.open(currentUrl, "_blank")` and `window.scrollTo` on `#btn-open-safari` and `#btn-footer-external` with `tryOpenExternalBrowser()` using `getCleanPageUrl()` (hash-free) and Apple's native `x-safari-https://` URI scheme.
+  - Added an in-place centered modal overlay (`showExternalBrowserModal()`) that auto-copies the clean URL and provides a 2-step guide when Zalo on iPhone blocks custom URI schemes, with zero page jump.
+- **2. Copy Adjustments on Message Card ([`MessageCard.ts`](../src/components/MessageCard.ts)):**
+  - Removed `"viết tay"` from the intro copy and image `alt` attribute.
+  - Removed `<p class="keepsake-hint">Di chuyển trên mặt thiệp để xem góc nghiêng 3D</p>`.
+- **3. Removed `"Món quà kỹ thuật số từ HKT"` & Replaced All `—` with `-` ([`Hero.ts`](../src/components/Hero.ts), [`Milestone.ts`](../src/components/Milestone.ts), [`index.html`](../index.html), [`site.webmanifest`](../public/site.webmanifest), [`README.md`](../README.md)):**
+  - Removed the `hero-lead-prose` paragraph (`"Món quà kỹ thuật số từ HKT..."`) from `Hero.ts`.
+  - Replaced every em-dash (`—`) and en-dash (`–`) across all source files, meta tags, manifest, and README with a single hyphen (`-`).
+- **4. Mobile-First 3D Tilt & Scroll Reveal Effects ([`card-3d.ts`](../src/effects/card-3d.ts), [`motion.css`](../src/styles/motion.css), [`components.css`](../src/styles/components.css), [`main.ts`](../src/main.ts)):**
+  - Removed `if (e.pointerType === "touch") return;` in `card-3d.ts` so touch events (`touchstart`/`touchmove` and `pointermove`) tilt the 3D card with dynamic specular gold glare (`.keepsake-card-glare`).
+  - Added continuous ambient 3D floating + scroll-driven 3D tilt on `#interactive-card` and `[data-tilt-scroll="true"]` portrait frames so 3D depth is clearly visible while scrolling on iPhone without needing a mouse cursor.
+  - Added top gold scroll progress bar (`#scroll-progress-bar`) and upgraded `.reveal-on-scroll` with 3D perspective (`perspective(900px) translate3d(0, 48px, 0) rotateX(9deg) scale(0.94)`) and bi-directional re-reveal when scrolling back up.
+- **5. Prevented Zalo Link from Forcing Jump to `#message-card` ([`index.html`](../index.html), [`Hero.ts`](../src/components/Hero.ts), [`main.ts`](../src/main.ts)):**
+  - Added synchronous `<head>` script in `index.html` setting `history.scrollRestoration = "manual"`, stripping `window.location.hash` via `history.replaceState`, and calling `window.scrollTo(0, 0)` before `#app` mounts.
+  - Changed `#cta-scroll-message` (`Mở thiệp mừng`) from `<a href="#message-card">` to `<button type="button">` using smooth JS scroll so `#message-card` never enters the URL bar.
+- **6. Footer Back-to-Top Button & Copyright ([`Signature.ts`](../src/components/Signature.ts), [`icons.ts`](../src/components/icons.ts), [`main.ts`](../src/main.ts)):**
+  - Added `#btn-back-to-top` (`Quay về đầu trang` with `Icons.arrowUp`) and `© Copyright Thục Khuê, HKT. All rights reserved.` at the bottom of the footer.

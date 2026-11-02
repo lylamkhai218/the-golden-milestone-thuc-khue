@@ -7,7 +7,7 @@ export function renderFooter(): string {
 
   return `
     <section class="section container" id="keepsake-banner">
-      <div class="commemorative-box reveal-on-scroll delay-1">
+      <div class="commemorative-box reveal-on-scroll reveal-scale delay-1" data-tilt-scroll="true">
         <div class="commemorative-header">
           <h2 class="section-title" style="margin-bottom: var(--space-xs);">
             Dấu Ấn Kỷ Niệm Từ HKT
@@ -46,7 +46,11 @@ export function renderFooter(): string {
         <br />
         From HKT (Hoàng - Khải - Tâm)
       </p>
+
       <div class="footer-tools">
+        <button type="button" class="btn-back-to-top" id="btn-back-to-top">
+          ${Icons.arrowUp} Quay về đầu trang
+        </button>
         <button type="button" class="btn-footer-link" id="btn-footer-copy">
           ${Icons.copy} Sao chép liên kết trang
         </button>
@@ -54,6 +58,10 @@ export function renderFooter(): string {
           ${Icons.compass} Mở bằng trình duyệt ngoài
         </button>
       </div>
+
+      <p class="footer-copyright">
+        © Copyright Thục Khuê, HKT. All rights reserved.
+      </p>
     </footer>
   `;
 }

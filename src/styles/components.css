@@ -476,7 +476,7 @@
 }
 
 .keepsake-card-container {
-  perspective: 1200px;
+  perspective: 1000px;
   width: 100%;
 }
 
@@ -487,6 +487,22 @@
   padding: var(--space-sm);
   transform-style: preserve-3d;
   will-change: transform;
+  touch-action: pan-y;
+  cursor: pointer;
+  border: 1px solid rgba(212, 168, 79, 0.42); /* taste-skill-ignore */
+  box-shadow: 0 20px 44px -14px rgba(23, 43, 70, 0.24); /* taste-skill-ignore */
+}
+
+.keepsake-card:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 4px;
+}
+
+.keepsake-card-inner {
+  position: relative;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  transform: translateZ(12px);
 }
 
 .keepsake-postcard-img {
@@ -496,11 +512,16 @@
   border-radius: var(--radius-sm);
 }
 
-.keepsake-hint {
-  font-size: var(--text-xs);
-  color: var(--color-text-muted);
-  margin-top: var(--space-sm);
-  text-align: left;
+.keepsake-card-glare {
+  position: absolute;
+  top: -40%;
+  left: -40%;
+  width: 65%;
+  height: 180%;
+  background-color: rgba(255, 250, 232, 0.28);
+  filter: blur(24px);
+  pointer-events: none;
+  will-change: transform, opacity;
 }
 
 .message-dedication-col {
@@ -615,6 +636,34 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+/* Back to Top button */
+.btn-back-to-top {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 20px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-navy);
+  color: var(--color-ivory-light);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  min-height: 44px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-back-to-top:hover {
+  background-color: var(--color-navy-surface);
+  transform: translateY(-2px);
+}
+
+.btn-back-to-top svg {
+  width: 14px;
+  height: 14px;
+  color: var(--color-gold-light);
 }
 
 /* Minimum 44px touch target enforced */
@@ -640,6 +689,143 @@
 .btn-footer-link svg {
   width: 14px;
   height: 14px;
+}
+
+.footer-copyright {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  letter-spacing: 0.02em;
+  padding-top: var(--space-sm);
+}
+
+/* Top Scroll Progress Indicator */
+.scroll-progress-track {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: rgba(23, 43, 70, 0.08);
+  z-index: 200;
+  pointer-events: none;
+}
+
+.scroll-progress-bar {
+  height: 100%;
+  width: 0%;
+  background-color: var(--color-gold);
+  transition: width 0.08s linear;
+}
+
+/* iOS Safari In-App Guide Modal */
+.safari-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(23, 43, 70, 0.78);
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md);
+}
+
+.safari-modal-card {
+  background-color: var(--color-ivory-light);
+  color: var(--color-navy);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  max-width: 460px;
+  width: 100%;
+  border: 1px solid var(--color-gold); /* taste-skill-ignore */
+  box-shadow: 0 24px 48px rgba(15, 29, 48, 0.35); /* taste-skill-ignore */
+  text-align: left;
+}
+
+.safari-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.safari-modal-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--color-gold-dark);
+  flex-shrink: 0;
+}
+
+.safari-modal-title {
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--color-navy);
+  flex: 1;
+}
+
+.btn-close-modal {
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-secondary);
+}
+
+.btn-close-modal svg {
+  width: 20px;
+  height: 20px;
+}
+
+.safari-modal-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--color-ivory-dark);
+  color: var(--color-navy);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+  margin-bottom: var(--space-md);
+}
+
+.safari-modal-badge svg {
+  width: 14px;
+  height: 14px;
+  color: var(--color-gold-dark);
+}
+
+.safari-modal-desc {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin-bottom: var(--space-md);
+}
+
+.safari-modal-steps {
+  padding-left: var(--space-lg);
+  margin-bottom: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  color: var(--color-navy);
+}
+
+.safari-modal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.safari-modal-btn {
+  flex: 1;
+  min-width: 140px;
+  font-size: var(--text-sm);
+  padding: 12px 18px;
 }
 
 /* Particle Canvas Container */
