@@ -1,0 +1,16 @@
+{
+  "name": "The Golden Milestone — For Thục Khuê",
+  "short_name": "Milestone",
+  "description": "Một hành trình nỗ lực, một cột mốc đáng tự hào. Lời chúc từ HKT dành tặng Thục Khuê.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#F8F1E3",
+  "theme_color": "#172B46",
+  "icons": [
+    {
+      "src": "./favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

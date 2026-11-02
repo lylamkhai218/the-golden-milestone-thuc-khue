@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="16" fill="#172B46"/>
+  <!-- Graduation cap in Champagne Gold -->
+  <path d="M54 26v14M10 26l22-11 22 11-22 11z" fill="none" stroke="#C5A052" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M19 31v10c7 6 19 6 26 0V31" fill="none" stroke="#C5A052" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
