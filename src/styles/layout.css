@@ -27,8 +27,8 @@
 }
 
 .section {
-  padding-top: calc(var(--space-section) * 0.7);
-  padding-bottom: calc(var(--space-section) * 0.7);
+  padding-top: calc(var(--space-section) * 0.72);
+  padding-bottom: calc(var(--space-section) * 0.72);
   position: relative;
 }
 
@@ -46,24 +46,51 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: var(--space-xs);
 }
 
 .brand-badge {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-xs);
+  gap: 6px;
   font-family: var(--font-serif);
-  font-size: var(--text-sm);
-  font-weight: 600;
-  letter-spacing: 0.12em;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--color-navy);
+  white-space: nowrap;
+}
+
+@media (min-width: 640px) {
+  .brand-badge {
+    font-size: var(--text-sm);
+    letter-spacing: 0.08em;
+    gap: var(--space-xs);
+  }
 }
 
 .brand-badge-icon {
   width: 18px;
   height: 18px;
-  color: var(--color-gold);
+  color: var(--color-gold-dark);
+  flex-shrink: 0;
+}
+
+.top-nav-recipient {
+  font-family: var(--font-serif);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--color-gold-dark);
+  white-space: nowrap;
+}
+
+@media (min-width: 640px) {
+  .top-nav-recipient {
+    font-size: var(--text-xs);
+    letter-spacing: 0.08em;
+  }
 }
 
 /* Two-column layout helper */
@@ -74,7 +101,7 @@
   align-items: center;
 }
 
-@media (min-width: 840px) {
+@media (min-width: 860px) {
   .grid-2col {
     grid-template-columns: 1fr 1fr;
     gap: var(--space-2xl);

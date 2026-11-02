@@ -1,6 +1,6 @@
-/* Components: Hero, Milestone, Message Card, Signature, In-App Banner */
+/* Components: Hero, Milestone, Inspiration, Message Card, Signature, In-App Banner */
 
-/* 1. In-App Browser Banner (data-ui keeps controls clean) */
+/* 1. In-App Browser Banner */
 .browser-alert-bar {
   background-color: var(--color-navy);
   color: var(--color-ivory);
@@ -44,7 +44,7 @@
 .btn-pill-small {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
   padding: 6px 14px;
   background-color: var(--color-gold);
   color: var(--color-navy);
@@ -53,6 +53,11 @@
   border-radius: var(--radius-full);
   min-height: 36px;
   transition: background-color 0.2s ease;
+}
+
+.btn-pill-small svg {
+  width: 14px;
+  height: 14px;
 }
 
 .btn-pill-small:hover {
@@ -69,37 +74,56 @@
   justify-content: center;
 }
 
-/* 2. Hero Section */
+.btn-close-bar svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* 2. Hero Section (Asymmetric Editorial Split) */
 .hero-section {
-  min-height: calc(100svh - 80px);
-  min-height: calc(100dvh - 80px);
+  min-height: calc(100svh - 72px);
+  min-height: calc(100dvh - 72px);
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  align-items: center;
   padding-top: var(--space-xl);
   padding-bottom: var(--space-3xl);
-  text-align: center;
+}
+
+.hero-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2xl);
+  align-items: center;
+  width: 100%;
+}
+
+@media (min-width: 900px) {
+  .hero-split {
+    grid-template-columns: 1.12fr 0.88fr;
+    gap: var(--space-3xl);
+  }
+}
+
+.hero-copy-col {
+  text-align: left;
 }
 
 .hero-crest {
-  margin: 0 auto var(--space-md);
-  width: 64px;
-  height: 64px;
-  color: var(--color-gold);
+  width: 48px;
+  height: 48px;
+  color: var(--color-gold-dark);
+  margin-bottom: var(--space-md);
 }
 
-/* Two-line max rule strictly enforced */
+/* Two-line max rule strictly enforced across all viewports */
 .hero-title {
   font-family: var(--font-serif);
   font-size: var(--text-monument);
   font-weight: 700;
   line-height: 1.02;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.028em;
   color: var(--color-navy);
-  margin-bottom: var(--space-lg);
-  max-width: 960px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-bottom: var(--space-md);
 }
 
 .hero-title-highlight {
@@ -108,26 +132,28 @@
 }
 
 .hero-subtitle {
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-navy);
+  line-height: 1.45;
+  margin-bottom: var(--space-md);
+  max-width: 560px;
+}
+
+.hero-lead-prose {
   font-size: var(--text-base);
   color: var(--color-text-secondary);
-  max-width: 620px;
-  margin: 0 auto var(--space-xl);
-  font-weight: 400;
   line-height: 1.7;
+  max-width: 540px;
+  margin-bottom: var(--space-xl);
 }
 
 .hero-cta-group {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
   gap: var(--space-md);
-}
-
-@media (min-width: 480px) {
-  .hero-cta-group {
-    flex-direction: row;
-  }
 }
 
 .btn-primary {
@@ -136,13 +162,12 @@
   justify-content: center;
   gap: var(--space-xs);
   background-color: var(--color-navy);
-  color: var(--color-ivory);
-  padding: 14px 32px;
+  color: var(--color-ivory-light);
+  padding: 14px 28px;
   font-weight: 600;
   font-size: var(--text-base);
   border-radius: var(--radius-full);
   min-height: 48px;
-  min-width: 180px;
   transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
@@ -158,106 +183,329 @@
 .btn-primary svg {
   width: 18px;
   height: 18px;
-  color: var(--color-gold);
+  color: var(--color-gold-light);
 }
 
-/* 3. Milestone Showcase Section */
-.milestone-section {
-  background-color: var(--color-navy);
-  color: var(--color-ivory);
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  background-color: var(--color-ivory-dark);
+  color: var(--color-navy);
+  padding: 14px 24px;
+  font-weight: 600;
+  font-size: var(--text-base);
+  border-radius: var(--radius-full);
+  min-height: 48px;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-gold-light);
+  transform: translateY(-2px);
+}
+
+.btn-secondary svg {
+  width: 18px;
+  height: 18px;
+  color: var(--color-gold-dark);
+}
+
+/* Hero Portrait Frame */
+.hero-portrait-frame {
+  background-color: var(--color-ivory-light);
   border-radius: var(--radius-lg);
-  padding: var(--space-2xl) var(--page-margin);
-  position: relative;
+  padding: var(--space-md);
+}
+
+.hero-portrait-media {
+  border-radius: var(--radius-md);
   overflow: hidden;
+  background-color: var(--color-ivory-dark);
+}
+
+.hero-portrait-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-portrait-frame:hover .hero-portrait-img {
+  transform: scale(1.03);
+}
+
+.hero-portrait-caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  padding-top: var(--space-md);
+  padding-left: var(--space-xs);
+  padding-right: var(--space-xs);
+  font-family: var(--font-serif);
+  font-size: var(--text-sm);
+  font-style: italic;
+  color: var(--color-text-secondary);
+}
+
+.caption-seal {
+  width: 20px;
+  height: 20px;
+  color: var(--color-gold-dark);
+  flex-shrink: 0;
+}
+
+/* 3. Milestone Full-Bleed Midnight Navy Band */
+.milestone-band {
+  background-color: var(--color-navy);
+  color: var(--color-ivory-light);
+  padding-top: var(--space-section);
+  padding-bottom: var(--space-section);
+  width: 100%;
+}
+
+.milestone-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2xl);
+  align-items: start;
+}
+
+@media (min-width: 860px) {
+  .milestone-split {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: var(--space-3xl);
+  }
 }
 
 .milestone-title {
   font-family: var(--font-serif);
-  font-size: var(--text-2xl);
-  font-weight: 600;
-  line-height: 1.15;
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  line-height: 1.1;
   color: var(--color-ivory-light);
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-lg);
 }
 
-.milestone-lead {
+.milestone-statement {
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--color-gold-light);
+  margin-bottom: var(--space-lg);
+}
+
+.milestone-body {
   font-size: var(--text-base);
   color: var(--color-ivory-dark);
   line-height: 1.75;
 }
 
-/* 4. Message Keepsake Card (One Live Thing) */
-.message-section {
-  text-align: center;
+.milestone-ledger {
+  background-color: var(--color-navy-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.ledger-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ledger-term {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-family: var(--font-serif);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-gold-light);
+}
+
+.ledger-term svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.ledger-desc {
+  font-size: var(--text-base);
+  font-weight: 500;
+  color: var(--color-ivory-light);
+  padding-left: 24px;
+}
+
+/* 4. Inspiration Section (Painting + Wish Directly Beneath) */
+.painting-editorial {
+  width: 100%;
+}
+
+.painting-header {
+  text-align: left;
+  margin-bottom: var(--space-xl);
 }
 
 .section-title {
   font-family: var(--font-serif);
-  font-size: var(--text-2xl);
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  line-height: 1.12;
   color: var(--color-navy);
-  margin-bottom: var(--space-xl);
+  margin-bottom: var(--space-xs);
+}
+
+.painting-intro {
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+}
+
+.painting-frame {
+  background-color: var(--color-ivory-light);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+}
+
+@media (min-width: 640px) {
+  .painting-frame {
+    padding: var(--space-xl);
+  }
+}
+
+.painting-media-wrap {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background-color: var(--color-ivory-dark);
+}
+
+.painting-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.painting-caption-box {
+  padding-top: var(--space-xl);
+  padding-left: var(--space-xs);
+  padding-right: var(--space-xs);
+  text-align: left;
+}
+
+@media (min-width: 640px) {
+  .painting-caption-box {
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
+  }
+}
+
+.painting-wish-icon {
+  width: 28px;
+  height: 28px;
+  color: var(--color-gold-dark);
+  margin-bottom: var(--space-sm);
+}
+
+.painting-wish-quote {
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  font-style: italic;
+  font-weight: 600;
+  line-height: 1.55;
+  color: var(--color-navy);
+  margin-bottom: var(--space-md);
+}
+
+.painting-wish-sub {
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+  line-height: 1.75;
+}
+
+/* 5. Message Keepsake Card Section (2-Column Interactive Showcase) */
+.message-showcase-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-2xl);
+  align-items: center;
+  background-color: var(--color-ivory-light);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl) var(--space-md);
+}
+
+@media (min-width: 640px) {
+  .message-showcase-split {
+    padding: var(--space-2xl);
+  }
+}
+
+@media (min-width: 920px) {
+  .message-showcase-split {
+    grid-template-columns: 1.08fr 0.92fr;
+    gap: var(--space-3xl);
+    padding: var(--space-3xl);
+  }
 }
 
 .keepsake-card-container {
   perspective: 1200px;
-  max-width: 720px;
-  margin: 0 auto;
+  width: 100%;
 }
 
 .keepsake-card {
   position: relative;
-  background-color: var(--color-ivory-light);
-  border-radius: var(--radius-lg);
-  padding: var(--space-2xl) var(--space-xl);
+  background-color: var(--color-ivory);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm);
   transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   transform-style: preserve-3d;
   will-change: transform;
 }
 
-@media (min-width: 640px) {
-  .keepsake-card {
-    padding: var(--space-3xl) var(--space-2xl);
-  }
+.keepsake-postcard-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-sm);
 }
 
-.card-inner-frame {
-  padding: var(--space-xl) var(--space-md);
-  position: relative;
+.keepsake-hint {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  margin-top: var(--space-sm);
+  text-align: left;
 }
 
-@media (min-width: 640px) {
-  .card-inner-frame {
-    padding: var(--space-2xl) var(--space-xl);
-  }
-}
-
-.card-crest-top {
-  width: 44px;
-  height: 44px;
-  margin: 0 auto var(--space-lg);
-  color: var(--color-gold);
+.message-dedication-col {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
 }
 
 .card-message-text {
   font-family: var(--font-serif);
-  font-size: clamp(1.125rem, 1.05rem + 0.4vw, 1.375rem);
-  line-height: 1.8;
+  font-size: var(--text-lg);
+  line-height: 1.75;
   color: var(--color-navy);
-  text-align: justify;
-  text-align-last: center;
-  margin-bottom: var(--space-xl);
   font-style: italic;
+  margin-bottom: var(--space-md);
 }
 
-/* 5. Signature Section */
 .signature-block {
-  text-align: center;
-  margin-top: var(--space-lg);
+  margin-bottom: var(--space-xl);
 }
 
 .signature-handwriting {
   font-family: var(--font-script);
-  font-size: clamp(2.25rem, 1.8rem + 2vw, 3.25rem);
+  font-size: clamp(2.1rem, 1.7rem + 1.5vw, 2.85rem);
   color: var(--color-navy);
   line-height: 1.2;
 }
@@ -265,33 +513,110 @@
 .signature-names {
   font-family: var(--font-serif);
   font-size: var(--text-base);
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  color: var(--color-navy);
-  margin-top: var(--space-2xs);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--color-gold-dark);
+  margin-top: 2px;
 }
 
-/* 6. Footer */
+.message-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+/* 6. Commemorative Banner Section */
+.commemorative-box {
+  background-color: var(--color-ivory-dark);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl) var(--space-md);
+}
+
+@media (min-width: 640px) {
+  .commemorative-box {
+    padding: var(--space-2xl);
+  }
+}
+
+.commemorative-header {
+  text-align: left;
+  margin-bottom: var(--space-lg);
+}
+
+.commemorative-sub {
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+}
+
+.commemorative-figure {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background-color: var(--color-navy);
+}
+
+.commemorative-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 7. Footer */
 .site-footer {
   margin-top: auto;
   padding-top: var(--space-2xl);
-  padding-bottom: var(--space-xl);
+  padding-bottom: var(--space-2xl);
   text-align: center;
+}
+
+.footer-seal {
+  width: 36px;
+  height: 36px;
+  margin: 0 auto var(--space-md);
+  color: var(--color-gold-dark);
 }
 
 .footer-quote {
   font-family: var(--font-serif);
-  font-size: var(--text-lg);
+  font-size: var(--text-xl);
   font-style: italic;
+  font-weight: 600;
   color: var(--color-navy);
   margin-bottom: var(--space-xs);
 }
 
 .footer-sub {
-  font-size: var(--text-xs);
+  font-size: var(--text-sm);
   color: var(--color-text-secondary);
-  letter-spacing: 0.04em;
-  line-height: 1.6;
+  line-height: 1.65;
+  margin-bottom: var(--space-md);
+}
+
+.footer-tools {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-footer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-ivory-dark);
+  color: var(--color-navy);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  min-height: 40px;
+  transition: background-color 0.2s ease;
+}
+
+.btn-footer-link:hover {
+  background-color: var(--color-gold-light);
+}
+
+.btn-footer-link svg {
+  width: 14px;
+  height: 14px;
 }
 
 /* Particle Canvas Container */

@@ -3,27 +3,55 @@ import { Icons } from "./icons.ts";
 export function renderHero(): string {
   return `
     <header class="hero-section container">
-      <div class="hero-crest reveal-on-scroll delay-1">
-        ${Icons.graduationCap}
-      </div>
-      
-      <h1 class="hero-title reveal-on-scroll delay-2">
-        Congratulations,
-        <span class="hero-title-highlight">Thục Khuê!</span>
-      </h1>
+      <div class="hero-split">
+        <div class="hero-copy-col">
+          <div class="hero-crest reveal-on-scroll delay-1">
+            ${Icons.graduationCap}
+          </div>
 
-      <p class="hero-subtitle reveal-on-scroll delay-3" style="font-size: var(--text-lg); font-weight: 500;">
-        Buổi bảo vệ luận án Thạc sĩ · Cột mốc vàng đáng tự hào
-      </p>
+          <h1 class="hero-title reveal-on-scroll delay-1">
+            Congratulations,
+            <span class="hero-title-highlight">Thục Khuê!</span>
+          </h1>
 
-      <p class="reveal-on-scroll delay-3" style="max-width: 580px; margin: 0 auto var(--space-xl); color: var(--color-text-secondary); font-size: var(--text-base); line-height: 1.7;">
-        Một hành trình nỗ lực, nghiên cứu và miệt mài. Món quà kỹ thuật số từ HKT gửi tặng tân Thạc sĩ tương lai.
-      </p>
+          <p class="hero-subtitle reveal-on-scroll delay-2">
+            Một hành trình nỗ lực, một cột mốc đáng tự hào. Chúc mừng Thục Khuê bảo vệ thành công luận án Thạc sĩ.
+          </p>
 
-      <div class="hero-cta-group reveal-on-scroll delay-4">
-        <a href="#message-card" class="btn-primary" id="cta-scroll-message">
-          Mở thiệp mừng ${Icons.arrowDown}
-        </a>
+          <p class="hero-lead-prose reveal-on-scroll delay-3">
+            Món quà kỹ thuật số từ HKT (Hoàng · Khải · Tâm) gửi tặng tân Thạc sĩ tương lai nhân ngày chinh phục dấu son học thuật rực rỡ.
+          </p>
+
+          <div class="hero-cta-group reveal-on-scroll delay-4">
+            <a href="#message-card" class="btn-primary" id="cta-scroll-message">
+              Mở thiệp mừng ${Icons.arrowDown}
+            </a>
+            <button type="button" class="btn-secondary" id="btn-celebrate-hero">
+              ${Icons.starCrest} Tung hoa chúc mừng
+            </button>
+          </div>
+        </div>
+
+        <figure class="hero-portrait-frame reveal-on-scroll delay-2">
+          <div class="hero-portrait-media">
+            <picture>
+              <source srcset="./assets/khue-graduation.webp" type="image/webp" />
+              <img
+                src="./assets/khue-graduation.jpg"
+                alt="Thục Khuê rạng rỡ trong lễ phục tốt nghiệp"
+                width="1080"
+                height="731"
+                fetchpriority="high"
+                decoding="async"
+                class="hero-portrait-img"
+              />
+            </picture>
+          </div>
+          <figcaption class="hero-portrait-caption">
+            <span>Thục Khuê — Rạng rỡ trên hành trình tri thức</span>
+            <span class="caption-seal">${Icons.laurelWreath}</span>
+          </figcaption>
+        </figure>
       </div>
     </header>
   `;

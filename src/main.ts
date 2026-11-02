@@ -15,6 +15,8 @@ import { renderFooter } from "./components/Signature.ts";
 import { Icons } from "./components/icons.ts";
 import { initParticles } from "./effects/particles.ts";
 import { initCard3DTilt } from "./effects/card-3d.ts";
+import { triggerCelebrationConfetti } from "./effects/confetti.ts";
+import { copyLinkToClipboard } from "./utils/external-browser.ts";
 import { prefersReducedMotion } from "./utils/motion-preference.ts";
 
 function initApp() {
@@ -26,26 +28,25 @@ function initApp() {
     <canvas id="particles-canvas"></canvas>
     <div id="browser-alert-container"></div>
     <div class="page-wrapper">
-      <header class="container">
-        <nav class="top-nav">
+      <div class="container">
+        <nav class="top-nav" aria-label="Điều hướng chính">
           <div class="brand-badge">
             <span class="brand-badge-icon">${Icons.graduationCap}</span>
             <span>The Golden Milestone</span>
           </div>
-          <div style="font-family: var(--font-serif); font-size: var(--text-xs); letter-spacing: 0.1em; color: var(--color-gold-dark);">
+          <div class="top-nav-recipient">
             FOR THỤC KHUÊ
           </div>
         </nav>
-      </header>
+      </div>
 
       <main>
         ${renderHero()}
         ${renderMilestone()}
         ${renderInspiration()}
         ${renderMessageCard()}
+        ${renderFooter()}
       </main>
-
-      ${renderFooter()}
     </div>
   `;
 
@@ -61,6 +62,24 @@ function initApp() {
 
   // Initialize 3D Keepsake Tilt
   initCard3DTilt("interactive-card");
+
+  // Initialize Confetti Moment Triggers
+  const btnHeroCelebrate = document.getElementById("btn-celebrate-hero");
+  const btnCardCelebrate = document.getElementById("btn-celebrate-card");
+  btnHeroCelebrate?.addEventListener("click", () => triggerCelebrationConfetti());
+  btnCardCelebrate?.addEventListener("click", () => triggerCelebrationConfetti());
+
+  // Initialize Footer Copy Button
+  const btnFooterCopy = document.getElementById("btn-footer-copy");
+  btnFooterCopy?.addEventListener("click", async () => {
+    const ok = await copyLinkToClipboard(window.location.href);
+    if (ok && btnFooterCopy) {
+      btnFooterCopy.innerHTML = `${Icons.check} Đã sao chép liên kết`;
+      setTimeout(() => {
+        btnFooterCopy.innerHTML = `${Icons.copy} Sao chép liên kết trang`;
+      }, 2200);
+    }
+  });
 
   // Initialize Scroll Reveals
   initScrollReveals();

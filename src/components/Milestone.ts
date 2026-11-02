@@ -2,42 +2,41 @@ import { Icons } from "./icons.ts";
 
 export function renderMilestone(): string {
   return `
-    <section class="section container" id="milestone">
-      <div class="milestone-section">
-        <div class="grid-2col" style="align-items: center;">
-          <div class="reveal-on-scroll delay-1" style="border-radius: var(--radius-md); overflow: hidden; background: rgba(0,0,0,0.2);">
-            <picture>
-              <source srcset="./assets/khue-graduation.webp" type="image/webp" />
-              <img
-                src="./assets/khue-graduation.jpg"
-                alt="Thục Khuê trong ngày tốt nghiệp"
-                width="1080"
-                height="731"
-                loading="lazy"
-                decoding="async"
-                style="width: 100%; height: auto; object-fit: cover; display: block;"
-              />
-            </picture>
+    <section class="milestone-band" id="milestone">
+      <div class="container">
+        <div class="milestone-split">
+          <div class="milestone-narrative">
+            <h2 class="milestone-title reveal-on-scroll delay-1">
+              Hành Trình Tri Thức & Sự Tận Tụy
+            </h2>
+
+            <p class="milestone-statement reveal-on-scroll delay-2">
+              “Mỗi nỗ lực đều xứng đáng được ghi nhận. Hôm nay là một cột mốc đặc biệt trên hành trình chinh phục tri thức của Khuê.”
+            </p>
+
+            <p class="milestone-body reveal-on-scroll delay-3">
+              Sau những tháng ngày miệt mài nghiên cứu, trăn trở cùng từng trang luận án, khoảnh khắc đứng trước hội đồng bảo vệ chính là lúc bản lĩnh, trí tuệ và niềm đam mê của Khuê tỏa sáng trọn vẹn nhất.
+            </p>
           </div>
 
-          <div class="reveal-on-scroll delay-2" style="display: flex; flex-direction: column; gap: var(--space-md);">
-            <h2 class="milestone-title">Hành Trình Tri Thức & Sự Tận Tụy</h2>
-            
-            <p class="milestone-lead">
-              Mỗi đêm miệt mài nghiên cứu, từng trang tài liệu và thử thách học thuật đã hội tụ lại trong ngày bảo vệ luận án hôm nay.
-            </p>
-
-            <p style="font-size: var(--text-base); color: var(--color-ivory-dark); line-height: 1.75;">
-              Đối diện hội đồng với sự tự tin, làm chủ đề tài và bảo vệ thành công công trình nghiên cứu đầy tâm huyết. Đây là dấu son khẳng định năng lực chuyên môn và mở ra những nấc thang mới trên con đường học thuật, sự nghiệp của Thục Khuê.
-            </p>
-
-            <div style="display: flex; align-items: center; gap: var(--space-sm); margin-top: var(--space-xs); color: var(--color-gold-light);">
-              <span style="width: 24px; height: 24px;">${Icons.laurelWreath}</span>
-              <span style="font-family: var(--font-serif); font-size: var(--text-base); font-style: italic;">
-                Dấu mốc tự hào của tân Thạc sĩ
-              </span>
+          <dl class="milestone-ledger reveal-on-scroll delay-2">
+            <div class="ledger-item">
+              <dt class="ledger-term">${Icons.graduationCap} Chủ nhân cột mốc</dt>
+              <dd class="ledger-desc">Tân Thạc sĩ tương lai Thục Khuê</dd>
             </div>
-          </div>
+            <div class="ledger-item">
+              <dt class="ledger-term">${Icons.academicSeal} Dấu ấn học thuật</dt>
+              <dd class="ledger-desc">Lễ Bảo vệ Luận án Thạc sĩ</dd>
+            </div>
+            <div class="ledger-item">
+              <dt class="ledger-term">${Icons.shield} Bản lĩnh hội đồng</dt>
+              <dd class="ledger-desc">Tự tin · Bình tĩnh · Lập luận sắc bén</dd>
+            </div>
+            <div class="ledger-item">
+              <dt class="ledger-term">${Icons.laurelWreath} Người đồng hành gửi tặng</dt>
+              <dd class="ledger-desc">HKT — Hoàng · Khải · Tâm</dd>
+            </div>
+          </dl>
         </div>
       </div>
     </section>
