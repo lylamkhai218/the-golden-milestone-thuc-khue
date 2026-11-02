@@ -12,9 +12,12 @@ export function renderHero(): string {
         <span class="hero-title-highlight">Thục Khuê!</span>
       </h1>
 
-      <p class="hero-subtitle reveal-on-scroll delay-3">
-        Một hành trình nỗ lực, một cột mốc đáng tự hào.
-        Chúc mừng Thục Khuê bảo vệ thành công luận án Thạc sĩ.
+      <p class="hero-subtitle reveal-on-scroll delay-3" style="font-size: var(--text-lg); font-weight: 500;">
+        Buổi bảo vệ luận án Thạc sĩ · Cột mốc vàng đáng tự hào
+      </p>
+
+      <p class="reveal-on-scroll delay-3" style="max-width: 580px; margin: 0 auto var(--space-xl); color: var(--color-text-secondary); font-size: var(--text-base); line-height: 1.7;">
+        Một hành trình nỗ lực, nghiên cứu và miệt mài. Món quà kỹ thuật số từ HKT gửi tặng tân Thạc sĩ tương lai.
       </p>
 
       <div class="hero-cta-group reveal-on-scroll delay-4">
