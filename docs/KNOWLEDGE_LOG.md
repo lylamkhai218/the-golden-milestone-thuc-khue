@@ -12,3 +12,9 @@
 - **Observation:** `inspect.mjs` failed on mobile 390px with `[edge-text]` when `.hero-section` and `.site-footer` defined `padding: var(--space) 0 var(--space)`. This inadvertently zeroed out `.container`'s horizontal padding.
 - **Resolution:** Defined vertical-only padding (`padding-top` and `padding-bottom`) on nested sections, preserving the 24px/32px horizontal gutters of `.container`.
 - **Result:** Passing the gate with **0 FAIL** across desktop (1440px), tablet (768px), and mobile (390px). Total production bundle size stands at only 8.8 kB gzip.
+
+## [2026-11-02 15:15] Integration of Personal Artwork & Mortarboard Identity
+- **Asset Ingestion & WebP Optimization:** Integrated `Ảnh Khuê vẽ tranh.jpg` into `public/assets/khue-painting.webp` (100 KB) and `Ảnh thumbnail link.png` into `public/assets/og-image.jpg` (270 KB) to prevent network lag on social preview bots (Zalo/Facebook).
+- **Poetic Editorial Copy Refinement:** Refined the raw wish under the painting into: *“Hãy tự do vẽ nên chân trời ước mơ mà Khuê hằng khao khát, bằng trọn vẹn niềm say mê và nguồn sáng rực rỡ nhất nơi tâm hồn. Cứ vững vàng và tự tin tiến bước, bởi trên hành trình này, Khuê luôn là vầng sáng đặc biệt và đáng tự hào nhất.”*
+- **Favicon Vector Mortarboard:** Crafted a classic academic Mortarboard square graduation cap (diamond geometry with tassel and brush in Champagne Gold on Midnight Navy) for `favicon.svg`, `favicon.ico`, and `apple-touch-icon.png`.
+- **Quality Audit:** Zero FAIL on tasteskill inspector across 1440px, 768px, and 390px viewports.

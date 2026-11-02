@@ -5,8 +5,11 @@
 export const Icons = {
   graduationCap: `
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
-      <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+      <polygon points="12 4 22 9 12 14 2 9"/>
+      <path d="M6 11.5v4.5c0 0 2 3 6 3s6-3 6-3v-4.5"/>
+      <circle cx="12" cy="9" r="1" fill="currentColor"/>
+      <path d="M12 9q5 1 6 5"/>
+      <polygon points="17 14 19 14 19.5 18 16.5 18" fill="currentColor"/>
     </svg>
   `,
   laurelWreath: `

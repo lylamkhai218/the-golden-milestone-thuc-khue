@@ -9,6 +9,7 @@ import "./styles/motion.css";
 import { renderBrowserHelp } from "./components/BrowserHelp.ts";
 import { renderHero } from "./components/Hero.ts";
 import { renderMilestone } from "./components/Milestone.ts";
+import { renderInspiration } from "./components/Inspiration.ts";
 import { renderMessageCard } from "./components/MessageCard.ts";
 import { renderFooter } from "./components/Signature.ts";
 import { Icons } from "./components/icons.ts";
@@ -40,6 +41,7 @@ function initApp() {
       <main>
         ${renderHero()}
         ${renderMilestone()}
+        ${renderInspiration()}
         ${renderMessageCard()}
       </main>
 
