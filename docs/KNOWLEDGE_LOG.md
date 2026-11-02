@@ -7,3 +7,8 @@
 - **Key Insight 3 (Anti-Slop Linter):** `design-taste-frontend` linter flags eyebrows, resting box-shadows, 1px hairlines, and gradient text. Replacing these with filled surfaces, tone steps, and solid brand typography elevates the design from "generic AI template" to refined editorial craft.
 - **Key Insight 4 (Mobile-First Safari Quirks):** Avoid `100vh` due to mobile browser URL bar jump. Use `100svh`/`100dvh` along with `safe-area-inset` padding.
 - **Key Insight 5 (Deployment Base Path):** Project site on GitHub Pages (`https://<user>.github.io/<repo>/`) requires Vite `base: '/<repo>/'` on GitHub Actions runner to ensure all script, CSS, and asset paths resolve without 404s.
+
+## [2026-11-02 15:06] Tasteskill Gate Verification & Edge-Text Prevention
+- **Observation:** `inspect.mjs` failed on mobile 390px with `[edge-text]` when `.hero-section` and `.site-footer` defined `padding: var(--space) 0 var(--space)`. This inadvertently zeroed out `.container`'s horizontal padding.
+- **Resolution:** Defined vertical-only padding (`padding-top` and `padding-bottom`) on nested sections, preserving the 24px/32px horizontal gutters of `.container`.
+- **Result:** Passing the gate with **0 FAIL** across desktop (1440px), tablet (768px), and mobile (390px). Total production bundle size stands at only 8.8 kB gzip.
