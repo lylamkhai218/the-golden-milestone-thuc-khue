@@ -47,3 +47,14 @@
   - `npm run build` (`vite build`): **Built in 200ms**
   - `design-taste-frontend` `lint.mjs`: **0 FAIL**
   - `design-taste-frontend` `inspect.mjs` (`1440px`, `768px`, `390px`, `320px`): **0 FAIL across all 4 viewports**
+
+
+---
+
+## [2026-11-02 15:52 GMT+7] — GitHub Pages Enablement & Deployment Fix
+
+- **Root Cause of Run #1 (`41415586670`) Failure:**
+  - The `build` job passed 100%, but the `deploy` job (`actions/deploy-pages@v4`) returned `HttpError: Not Found (status: 404) — Ensure GitHub Pages has been enabled` because the newly created repository did not have GitHub Pages (`build_type: "workflow"`) activated in repository settings yet.
+- **Resolution:**
+  - Programmatically enabled GitHub Pages (`POST /repos/lylamkhai218/the-golden-milestone-thuc-khue/pages` with `{"build_type": "workflow"}`) via the GitHub REST API.
+  - Added `actions/configure-pages@v5` to [`.github/workflows/deploy.yml`](../.github/workflows/deploy.yml) before `actions/upload-pages-artifact@v3` to ensure environment metadata is always configured prior to deployment.
